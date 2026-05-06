@@ -1,0 +1,241 @@
+/* === IMPORT POLICES === */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Nunito&family=Quicksand&family=Raleway:ital,wght@1,500&display=swap');
+
+/* === RESET === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === VARIABLES JUNIA === */
+:root {
+  --violet: #4A1B68;
+  --orange: #F39200;
+  --texte: #2A2A2A;
+  --fond: #FAF7FB;
+}
+
+/* === BASE === */
+body {
+  font-family: "Quicksand", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--texte);
+  background-color: var(--fond);
+}
+
+/* === TITRES === */
+h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 10px;
+  border-left: 5px solid var(--orange);
+  padding-left: 10px;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+/* === LIENS === */
+a {
+  text-decoration: none;
+  color: var(--violet);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--orange);
+}
+
+/* === HEADER === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding: 25px 40px;
+  background: var(--violet);
+  color: white;
+}
+
+header ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 5px;
+  list-style: none;
+}
+
+header a {
+  color: white;
+}
+
+header a:hover {
+  color: var(--orange);
+}
+
+/* === LAYOUT GRID === */
+.layout {
+  display: grid;
+  grid-template-columns: 0.9fr 2.1fr;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 30px 10px;
+}
+
+/* === ASIDE === */
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+aside img {
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+aside ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+aside li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+aside a {
+  display: flex;
+  align-items: center;
+}
+
+aside a img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+aside a:hover img {
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+/* === MAIN === */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* === ARTICLES (cards) === */
+article {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  transition: 0.2s ease;
+}
+
+/* === DATES === */
+.dates {
+  font-family: "Dosis", sans-serif;
+  color: gray;
+  font-size: 14px;
+}
+
+/* === LISTES === */
+main ul {
+  padding-left: 20px;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--violet);
+  color: white;
+  font-family: "Dosis", sans-serif;
+}
+
+footer a {
+  color: var(--orange);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  header ul {
+    align-items: center;
+  }
+}
+
+/* === MODE SOMBRE === */
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    --violet: #2E0F40;
+    --orange: #F9A826;
+    --texte: #EAEAEA;
+    --fond: #1A1A1A;
+  }
+
+  body {
+    background-color: var(--fond);
+    color: var(--texte);
+  }
+
+  article {
+    background: #2A2A2A;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  header {
+    background: var(--violet);
+  }
+
+  footer {
+    background: var(--violet);
+  }
+
+  a {
+    color: #CFA8FF;
+  }
+
+  a:hover {
+    color: var(--orange);
+  }
+
+}
