@@ -42,6 +42,23 @@ mettreAJourCompteur();
 const formulaire = document.querySelector("#form-cv");
 const apercuContenu = document.querySelector("#apercu-contenu");
 
+const formaterDomaines = () => {
+    const domaineSelectionne = formulaire.querySelector('input[name="domaines"]:checked');
+
+    if (!domaineSelectionne) {
+        return "—";
+    }
+
+    const libelles = {
+        stage: "Stage",
+        alternance: "Alternance",
+        cdi: "CDI",
+        mobilite: "Mobilité",
+    };
+
+    return libelles[domaineSelectionne.value] || domaineSelectionne.value;
+};
+
 const mettreAJourApercu = () => {
     const donnees = new FormData(formulaire);
 
@@ -50,6 +67,7 @@ const mettreAJourApercu = () => {
         <p>📧 ${donnees.get("email") || "—"}</p>
         <p>📞 ${donnees.get("telephone") || "—"}</p>
         <p>🎂 Né(e) le ${donnees.get("date-naissance") || "—"}</p>
+        <p>🔎 ${formaterDomaines()}</p>
         <h4>Lettre de motivation</h4>
         <p>${donnees.get("motivation") || "—"}</p>
     `;
@@ -75,8 +93,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const donnees = JSON.parse(sauvegarde);
     for (const [cle, valeur] of Object.entries(donnees)) {
-        const champ = formulaire.querySelector(`[name="${cle}"]`);
-        if (champ) {
+        const champs = formulaire.querySelectorAll(`[name="${cle}"]`);
+        if (champs.length === 0) {
+            continue;
+        }
+
+        if (champs[0].type === "radio") {
+            champs.forEach((champ) => {
+                champ.checked = Array.isArray(valeur) ? valeur.includes(champ.value) : champ.value === valeur;
+            });
+        } else {
+            const champ = champs[0];
             champ.value = valeur;
         }
     }
@@ -109,3 +136,26 @@ const afficherNotification = (message) => {
     document.body.appendChild(notif);
     setTimeout(() => notif.remove(), 3000);
 };
+
+//mode sombre
+const boutonTheme = document.querySelector("#theme-toggle");
+const cleTheme = "theme-cv";
+
+const appliquerTheme = (estSombre) => {
+    document.body.classList.toggle("theme-sombre", estSombre);
+    if (boutonTheme) {
+        boutonTheme.textContent = estSombre ? "Mode clair" : "Mode sombre";
+        boutonTheme.setAttribute("aria-pressed", String(estSombre));
+    }
+};
+
+const themeEnregistre = localStorage.getItem(cleTheme) === "sombre";
+appliquerTheme(themeEnregistre);
+
+if (boutonTheme) {
+    boutonTheme.addEventListener("click", () => {
+        const nouveauThemeSombre = !document.body.classList.contains("theme-sombre");
+        appliquerTheme(nouveauThemeSombre);
+        localStorage.setItem(cleTheme, nouveauThemeSombre ? "sombre" : "clair");
+    });
+}

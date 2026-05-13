@@ -128,6 +128,18 @@ footer a {
   box-shadow: 0 8px 18px rgba(107,44,145,0.18);
 }
 
+.theme-toggle {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  width: 9.5rem;
+  flex: 0 0 9.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
 form {
     max-width: 800px;
     margin: 2rem auto;
@@ -166,6 +178,57 @@ textarea,
 select{
     width: 100%;
     padding: 0.75rem;
+
+.choix-domaines {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.option-pilule {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.option-pilule input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option-pilule span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 7.5rem;
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--violet);
+  border-radius: 999px;
+  background: var(--blanc);
+  color: var(--violet);
+  font-weight: 600;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.option-pilule:hover span {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(107, 44, 145, 0.12);
+}
+
+.option-pilule input:checked + span {
+  background: linear-gradient(135deg, var(--violet), var(--orange));
+  color: var(--blanc);
+  border-color: transparent;
+  box-shadow: 0 6px 14px rgba(107, 44, 145, 0.2);
+}
+
+.option-pilule input:focus-visible + span {
+  outline: 3px solid rgba(243, 146, 0, 0.35);
+  outline-offset: 2px;
+}
     border: 2px solid #ddd;
     border-radius: 6px;
     font-size: 1rem;
@@ -231,6 +294,96 @@ button[type="submit"]:hover {
 .valide + .erreur,
 .valide ~ .erreur {
     color: var(--succes);
+}
+
+body.theme-sombre {
+  --violet: #F9A826;
+  --violet-clair: #FFD37A;
+  --orange: #A569BD;
+  --orange-clair: #D7B2E7;
+  --texte: #F2F2F2;
+  --fond: #121212;
+  --blanc: #1E1E1E;
+  --erreur: #FF8A80;
+  --succes: #7EE2A8;
+}
+
+body.theme-sombre {
+  background-color: var(--fond);
+  color: var(--texte);
+}
+
+body.theme-sombre header {
+  background: linear-gradient(135deg, #24102f 0%, #3d2c18 100%);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+
+body.theme-sombre header h1,
+body.theme-sombre header p,
+body.theme-sombre header a,
+body.theme-sombre header .theme-toggle {
+  color: #ffffff;
+}
+
+body.theme-sombre form,
+body.theme-sombre .apercu {
+  background: var(--blanc);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+body.theme-sombre fieldset {
+  border-color: var(--violet);
+}
+
+body.theme-sombre legend,
+body.theme-sombre label,
+body.theme-sombre h2,
+body.theme-sombre #apercu-contenu h3,
+body.theme-sombre #apercu-contenu h4 {
+  color: var(--violet);
+}
+
+body.theme-sombre input[type="text"],
+body.theme-sombre input[type="email"],
+body.theme-sombre input[type="tel"],
+body.theme-sombre input[type="date"],
+body.theme-sombre textarea,
+body.theme-sombre select {
+  background: #2a2a2a;
+  color: var(--texte);
+  border-color: #555;
+}
+
+body.theme-sombre .apercu {
+  background: linear-gradient(180deg, rgba(249, 168, 38, 0.08), rgba(165, 105, 189, 0.08));
+  border-color: rgba(249, 168, 38, 0.2);
+}
+
+body.theme-sombre footer {
+  background: #24102f;
+  color: var(--texte);
+}
+
+body.theme-sombre footer a,
+body.theme-sombre a {
+  color: #FFD37A;
+}
+
+body.theme-sombre a:hover {
+  color: var(--orange);
+}
+
+body.theme-sombre .option-pilule span {
+  background: #262626;
+  color: var(--texte);
+  border-color: #666;
+}
+
+body.theme-sombre .option-pilule input:checked + span {
+  background: linear-gradient(135deg, var(--violet), var(--orange));
+  color: var(--blanc);
+  border-color: transparent;
 }
 
 .apercu {

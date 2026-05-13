@@ -26,6 +26,7 @@
       <p>Curriculum Vitae</p>
     </div>
     <ul>
+      <li><button type="button" id="theme-toggle" class="btn-link theme-toggle" aria-pressed="false">Mode sombre</button></li>
       <li><a href="cv.html" class="btn-link">Retour au CV</a></li>
     </ul>
   </header>
@@ -66,6 +67,30 @@
 
         <fieldset>
           <legend>Motivation</legend>
+
+          <label>vous recherchez : </label>
+          <div class="choix-domaines">
+            <label class="option-pilule">
+              <input type="radio" name="domaines" value="stage">
+              <span>un stage</span>
+            </label>
+            <label class="option-pilule">
+              <input type="radio" name="domaines" value="alternance">
+              <span>une alternance</span>
+            </label>
+            <label class="option-pilule">
+              <input type="radio" name="domaines" value="cdi">
+              <span>un CDI</span>
+            </label>
+            <label class="option-pilule">
+              <input type="radio" name="domaines" value="mobilite">
+              <span>une mobilité</span>
+            </label>
+            <label class="option-pilule">
+              <input type="radio" name="domaines" value="?">
+              <span>autre chose</span>
+            </label>
+          </div>
 
           <label for="motivation">lettre de motivation</label>
           <textarea id="motivation" name="motivation" maxlength="500"></textarea>
