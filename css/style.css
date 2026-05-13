@@ -10,10 +10,15 @@
 
 /* === VARIABLES JUNIA === */
 :root {
-  --violet: #4A1B68;
+  --violet: #6B2C91;
+  --violet-clair: #A569BD;
   --orange: #F39200;
-  --texte: #2A2A2A;
-  --fond: #FAF7FB;
+  --orange-clair: #FDB44B;
+  --texte: #333333;
+  --fond: #FAF7F2;
+  --blanc: #FFFFFF;
+  --erreur: #E74C3C;
+  --succes: #27AE60;
 }
 
 /* === BASE === */
@@ -59,10 +64,17 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  background: linear-gradient(135deg, var(--violet) 0%, var(--orange) 100%);
+  color: var(--blanc);
+  padding: 3rem 2rem;
+  text-align: right;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 20px rgba(107, 44, 145, 0.2);
+}
 
-  padding: 25px 40px;
-  background: var(--violet);
-  color: white;
+header h1 {
+  font-size: 2rem;
 }
 
 header ul {
@@ -74,11 +86,11 @@ header ul {
 }
 
 header a {
-  color: white;
+  color: var(--blanc);
 }
 
 header a:hover {
-  color: var(--orange);
+  color: var(--violet);
 }
 
 /* === LAYOUT GRID === */
@@ -238,4 +250,22 @@ footer a {
     color: var(--orange);
   }
 
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: var(--violet);
+  color: var(--blanc);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(107,44,145,0.15);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(107,44,145,0.18);
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="./css/form.css">
+
+     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Mooli&family=Roboto:wght@100&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand&family=Raleway:ital,wght@1,500&display=swap');
+      html {
+      scroll-behavior: smooth;
+      }
+    </style>
+    
+  </head>
+
+  <body id="top">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <h1>Formulaire</h1>
+      <p>Curriculum Vitae</p>
+    </div>
+    <ul>
+      <li><a href="cv.html" class="btn-link">Retour au CV</a></li>
+    </ul>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="form-page">
+      <form id="form-cv">
+        <fieldset>
+          <legend>Informations personnelles</legend>
+
+          <div class="champs-perso">
+            <div class="champ">
+              <label for="nom">nom</label>
+              <input type="text" id="nom" name="nom" required>
+            </div>
+
+            <div class="champ">
+              <label for="prenom">prénom</label>
+              <input type="text" id="prenom" name="prenom" required>
+            </div>
+
+            <div class="champ">
+              <label for="email">mail</label>
+              <input type="email" id="email" name="email" required>
+              <span class="erreur" id="erreur-email"></span>
+            </div>
+
+            <div class="champ">
+              <label for="telephone">téléphone</label>
+              <input type="tel" id="telephone" name="telephone">
+            </div>
+          </div>
+
+          <label for="date-naissance">date de naissance</label>
+          <input type="date" id="date-naissance" name="date-naissance">
+        </fieldset>
+
+        <fieldset>
+          <legend>Motivation</legend>
+
+          <label for="motivation">lettre de motivation</label>
+          <textarea id="motivation" name="motivation" maxlength="500"></textarea>
+          <span class="compteur" id="compteur-motivation"></span>
+        </fieldset>
+
+        <button type="submit">soumettre</button>
+      </form>
+
+      <section id="apercu-cv" class="apercu">
+        <h2>Aperçu de votre CV</h2>
+        <div id="apercu-contenu"></div>
+      </section>      
+
+    </div>    
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Agathe Maciaszczyk — Étudiante JUNIA</p>
+    <a href="#top">Retour en haut</a>
+  </footer>
+
+  <script src="js/form-cv.js"></script>
+  </body>
+</html>

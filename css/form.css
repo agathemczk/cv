@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Nunito&family=Quicksand&family=Raleway:ital,wght@1,500&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --violet: #6B2C91;
+  --violet-clair: #A569BD;
+  --orange: #F39200;
+  --orange-clair: #FDB44B;
+  --texte: #333333;
+  --fond: #FAF7F2;
+  --blanc: #FFFFFF;
+  --erreur: #E74C3C;
+  --succes: #27AE60;
+}
+
+body {
+  font-family: "Quicksand", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--texte);
+  background-color: var(--fond);
+}
+
+h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 10px;
+  border-left: 5px solid var(--orange);
+  padding-left: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--violet);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--orange);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: linear-gradient(135deg, var(--violet) 0%, var(--orange) 100%);
+  color: var(--blanc);
+  padding: 3rem 2rem;
+  text-align: right;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 20px rgba(107, 44, 145, 0.2);
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 5px;
+  list-style: none;
+}
+
+header a {
+  color: var(--blanc);
+}
+
+header a:hover {
+  color: var(--orange);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 0.9fr 2.1fr;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 30px 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--violet);
+  color: white;
+  font-family: "Dosis", sans-serif;
+}
+
+footer a {
+  color: var(--orange);
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: var(--violet);
+  color: var(--blanc);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(107,44,145,0.15);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(107,44,145,0.18);
+}
+
+form {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--blanc);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+fieldset {
+    border: 2px solid var(--violet);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    color: var(--violet);
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--violet);
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select{
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(243, 146, 0, 0.2);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.champs-perso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, var(--violet), var(--orange));
+    color: var(--blanc);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(107, 44, 145, 0.4);
+}
+
+.invalide {
+    border-color: var(--erreur) !important;
+    background-color: #fdf2f2;
+}
+
+.valide {
+    border-color: var(--succes) !important;
+    background-color: #f0faf4;
+}
+
+.erreur {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--erreur);
+}
+
+.valide + .erreur,
+.valide ~ .erreur {
+    color: var(--succes);
+}
+
+.apercu {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(180deg, rgba(107, 44, 145, 0.06), rgba(243, 146, 0, 0.04));
+    border: 1px solid rgba(107, 44, 145, 0.15);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(107, 44, 145, 0.08);
+}
+
+.apercu h2 {
+    margin-bottom: 1rem;
+}
+
+#apercu-contenu {
+    display: grid;
+    gap: 0.75rem;
+}
+
+#apercu-contenu h3 {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.6rem;
+    color: var(--violet);
+    margin-bottom: 0.25rem;
+}
+
+#apercu-contenu h4 {
+    margin-top: 0.75rem;
+    color: var(--violet);
+    font-size: 1.05rem;
+}
+
+#apercu-contenu p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--junia-orange);
+    color: var(--junia-blanc);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .apercu {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .champs-perso {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  header ul {
+    align-items: center;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    --violet: #2E0F40;
+    --orange: #F9A826;
+    --texte: #EAEAEA;
+    --fond: #1A1A1A;
+  }
+
+  body {
+    background-color: var(--fond);
+    color: var(--texte);
+  }
+
+  article {
+    background: #2A2A2A;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  header {
+    background: var(--violet);
+  }
+
+  footer {
+    background: var(--violet);
+  }
+
+  a {
+    color: #CFA8FF;
+  }
+
+  a:hover {
+    color: var(--orange);
+  }
+
+}
